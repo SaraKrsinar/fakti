@@ -1,0 +1,17 @@
+<h2 id="kv">КВИЗ со интересни факти</h2>
+<h3 id="gt">Ако си љубител на серијата Игра на тронови a.k.a Game of thrones, 
+  тогаш овој квиз е токму за тебе!
+  Низ неколку интересни прашања дознај повеќе за оваа врвна серија. Се надевам ќе ти биде забавно!
+</h3>
+<h2 id="sp">SPOILERS AHEAD!</h2>
+<div class="quiz-container">
+  <div *ngFor="let question of questions; let qIndex = index">
+    <h3 id="q">{{ question.prompt }}</h3>
+    <div *ngFor="let choice of question.choices; let i = index">
+      <button class="answer-button" [ngClass]="{'selected': selectedAnswers[qIndex] === i, 'correct': selectedAnswers[qIndex] === i && selectedAnswers[qIndex] === question.answer, 'incorrect': selectedAnswers[qIndex] === i && selectedAnswers[qIndex] !== question.answer}" (click)="selectAnswer({questionIndex: qIndex, choiceIndex: i})">{{ choice }}</button>
+    </div>
+  </div>
+</div>
+<a href="http://127.0.0.1:5500/mojproekt.html">
+  <button id="kopcee">Врати се на почетната страна</button>
+</a>
